@@ -39,7 +39,12 @@ const ExpressionsWithWhitespace = [
   "(-2 )",
   "( 1+ 2*3)",
   "(1+2) *3",
-  "2*(3 + 5*( 7 + 4 ))-1"
+  "2*(3 + 5*( 7 + 4 ))-1",
+]
+
+const Associativity = [
+  "1 - 2 + 3",
+  "12 / 4 * 3",
 ]
 
 let grammar = loadGrammar()
@@ -55,6 +60,10 @@ test("expressions with parentheses", t => {
 
 test("expressions with whitespace", t => {
   testValues(t, ExpressionsWithWhitespace)
+})
+
+test("expressions with left associativity", t => {
+  testValues(t, Associativity)
 })
 
 function testValues(t, values) {

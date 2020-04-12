@@ -13,12 +13,10 @@ The SMURF grammar has a section describing expressions:
 ~~~ ebnf
 //////////////////// arithmetic expression /////////////////////////////
 arithmetic_expression
-  = mult_term addop arithmetic_expression
-  | mult_term
+  = mult_term (addop mult_term)*
 
 mult_term
-  = primary mulop mult_term
-  | primary
+  = primary (mulop primary)*
 
 primary
   = integer
